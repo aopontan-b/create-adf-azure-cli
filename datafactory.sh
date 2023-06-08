@@ -52,16 +52,9 @@ az datafactory pipeline create --resource-group ${RESOUCE_GROUP_NAME} \
     --pipeline @Adfv2QuickStartPipeline.json
 
 # パイプラインを実行
-az datafactory pipeline create-run --resource-group ${RESOUCE_GROUP_NAME} \
-    --name Adfv2QuickStartPipeline --factory-name ${FACTORY_NAME}
-
-# RUN_ID=`az datafactory pipeline create-run --resource-group ${RESOUCE_GROUP_NAME} \
-#     --name Adfv2QuickStartPipeline --factory-name ${FACTORY_NAME} | jq '.runId'`
+RUN_ID=`az datafactory pipeline create-run --resource-group ${RESOUCE_GROUP_NAME} \
+    --name Adfv2QuickStartPipeline --factory-name ${FACTORY_NAME} | jq -r '.runId'`
 
 # パイプラインが正常に実行されたことを確認
-# なぜか --run-id だけ環境変数が指定できない
-# --run-id ${RUN_ID} と指定すると、
-# 「Operation returned an invalid status 'Not Found'」とエラーが発生する
-# 「az datafactory pipeline create-run」で出力されたIDをコピペすると確認できる
-# az datafactory pipeline-run show --resource-group ${RESOUCE_GROUP_NAME} \
-#     --factory-name ${FACTORY_NAME} --run-id ${RUN_ID}
+az datafactory pipeline-run show --resource-group ${RESOUCE_GROUP_NAME} \
+    --factory-name ${FACTORY_NAME} --run-id ${RUN_ID}
