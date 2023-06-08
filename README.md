@@ -3,28 +3,26 @@
 ## セットアップ
 [Azure Cloud Shell](https://learn.microsoft.com/ja-jp/azure/cloud-shell/overview) 上でazure cli を実行する。
 1. この[サイト](https://learn.microsoft.com/ja-jp/azure/cloud-shell/quickstart?tabs=azurecli)を参考に`Cloud Shellの起動`から`サブスクリプションの Azure Cloud Shell への登録`まで進める
+
 2. Cloud Shell上で次のコマンドを実行し、ソースコードを取得
     ```
     git clone https://github.com/aopontan-b/create-adf-azure-cli.git
     cd create-adf-azure-cli
     ```
-3. 次のコマンドを実行して リソース グループ, ストレージ アカウントとコンテナー, データファクトリーを構築する
+
+3. <>部分を書き換えて、次のコマンドを実行して環境変数を設定する
    ```
    export RESOUCE_GROUP_NAME=<作成するリソースグループの名前>
    export STORAGE_ACCOUNT_NAME=<作成するストレージアカウントの名前>
    export FACTORY_NAME=<作成するデータファクトリーの名前>
+   ```
+
+4. 次のコマンドを実行して リソース グループ, ストレージ アカウントとコンテナー, データファクトリーを構築し、パイプラインの実行をする
+   ```
    ./datafactory.sh
    ```
-4. 前回のコマンドを実行して`bash: ./datafactory.sh: Permission denied`が表示された場合、次のコマンドを実行してからもう一度実行する
-   ```
-   chmod 744 datafactory.sh
-   ```
-5. コマンドを実行して出力された`runId`をコピーし、次のコマンドの`--run-id`に貼り付けて実行する
-   ```
-   az datafactory pipeline-run show --resource-group ${RESOUCE_GROUP_NAME} \
-     --factory-name ${FACTORY_NAME} --run-id "<RUN_ID>"
-   ```
-6. 次のように出力されたらパイプラインの実行が成功している
+
+5. 次のように出力されたらパイプラインの実行が成功している
    ```
    {
       "annotations": [],
