@@ -19,6 +19,11 @@
    ```
    chmod 744 datafactory.sh
    ```
+5. コマンドを実行して出力された`runId`をコピーし、次のコマンドの`--run-id`に貼り付けて実行する
+   ```
+   az datafactory pipeline-run show --resource-group ${RESOUCE_GROUP_NAME} \
+     --factory-name ${FACTORY_NAME} --run-id "<RUN_ID>"
+   ```
 
 ## 参考記事
 - [クイックスタート: Azure CLI を使用して Azure データ ファクトリを作成する](https://learn.microsoft.com/ja-jp/azure/data-factory/quickstart-create-data-factory-azure-cli)
