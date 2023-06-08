@@ -32,6 +32,11 @@
    }
    ```
 
+6. リソースのクリーンアップ
+   ```
+   az group delete --name ${RESOUCE_GROUP_NAME}
+   ```
+
 ## 参考記事
 - [クイックスタート: Azure CLI を使用して Azure データ ファクトリを作成する](https://learn.microsoft.com/ja-jp/azure/data-factory/quickstart-create-data-factory-azure-cli)
 - [Azure Cloud Shell の概要](https://learn.microsoft.com/ja-jp/azure/cloud-shell/overview)
