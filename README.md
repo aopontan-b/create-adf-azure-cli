@@ -24,6 +24,15 @@
    az datafactory pipeline-run show --resource-group ${RESOUCE_GROUP_NAME} \
      --factory-name ${FACTORY_NAME} --run-id "<RUN_ID>"
    ```
+6. 次のように出力されたらパイプラインの実行が成功している
+   ```
+   {
+      "annotations": [],
+      "debugRunId": null,
+      ...
+      "status": "Succeeded"
+   }
+   ```
 
 ## 参考記事
 - [クイックスタート: Azure CLI を使用して Azure データ ファクトリを作成する](https://learn.microsoft.com/ja-jp/azure/data-factory/quickstart-create-data-factory-azure-cli)
