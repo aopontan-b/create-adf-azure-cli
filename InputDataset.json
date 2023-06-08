@@ -1,0 +1,16 @@
+{
+    "linkedServiceName": {
+        "referenceName": "AzureStorageLinkedService",
+        "type": "LinkedServiceReference"
+    },
+    "annotations": [],
+    "type": "Binary",
+    "typeProperties": {
+        "location": {
+            "type": "AzureBlobStorageLocation",
+            "fileName": "emp.txt",
+            "folderPath": "input",
+            "container": "adftutorial"
+        }
+    }
+}
