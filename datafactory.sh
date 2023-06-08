@@ -55,6 +55,9 @@ az datafactory pipeline create --resource-group ${RESOUCE_GROUP_NAME} \
 RUN_ID=`az datafactory pipeline create-run --resource-group ${RESOUCE_GROUP_NAME} \
     --name Adfv2QuickStartPipeline --factory-name ${FACTORY_NAME} | jq -r '.runId'`
 
+# 20秒待機
+sleep 20
+
 # パイプラインが正常に実行されたことを確認
 az datafactory pipeline-run show --resource-group ${RESOUCE_GROUP_NAME} \
     --factory-name ${FACTORY_NAME} --run-id ${RUN_ID}
